@@ -1,0 +1,262 @@
+{
+    "owner": "0xD5A2DEA630FF4A999C124ea4c04ad83137860668",
+    "DiamondCutFacet": {
+        "is_facet": true,
+        "deploy": {
+            "artifact": "DiamondCutFacet",
+            "arguments": []
+        },
+        "deployed_address": "0x4137ae5c47546197409C53317a207def2B6f7017"
+    },
+    "DiamondLoupeFacet": {
+        "is_facet": true,
+        "deploy": {
+            "artifact": "DiamondLoupeFacet",
+            "arguments": []
+        },
+        "deployed_address": "0x058725536D2E6C9825c7b895CE5e140Dd0387eBe",
+        "initialized": true
+    },
+    "OwnershipFacet": {
+        "is_facet": true,
+        "deploy": {
+            "artifact": "OwnershipFacet",
+            "arguments": []
+        },
+        "deployed_address": "0x9b5f8827d5Fe8f6Fb4e69313CEe452A96377e3Ed",
+        "initialized": true
+    },
+    "AccessFacet": {
+        "is_facet": true,
+        "deploy": {
+            "artifact": "AccessFacet",
+            "arguments": []
+        },
+        "deployed_address": "0xdF0C4f540B9B96B98C596046238aa3837F02D4c5",
+        "initialized": true
+    },
+    "ManagerFacet": {
+        "is_facet": true,
+        "deploy": {
+            "artifact": "ManagerFacet",
+            "arguments": []
+        },
+        "deployed_address": "0x3c57B7142B7332f773f202c3740dA0dde7ca16Ee",
+        "initialized": true
+    },
+    "UniswapFacet": {
+        "is_facet": true,
+        "deploy": {
+            "artifact": "UniswapFacet",
+            "arguments": []
+        },
+        "deployed_address": "0x03eE866FbB6FC28c1c83F549CBBc94E095899C50",
+        "initialized": true
+    },
+    "CrossDev": {
+        "deploy": {
+            "artifact": "CrossDev",
+            "arguments": [
+                "owner",
+                "DiamondCutFacet.deployed_address"
+            ]
+        },
+        "deployed_address": "0x7cf9F65Ff249b17058D2F00adf0b3976198FF0C1"
+    },
+    "initial_cuts": [
+        "OwnershipFacet",
+        "DiamondLoupeFacet",
+        "AccessFacet",
+        "ManagerFacet",
+        "UniswapFacet"
+    ],
+    "post_send": [
+        {
+            "facet_name": "AccessFacet",
+            "address": "CrossDev.deployed_address",
+            "function_name": "setAddressForRole",
+            "params": [
+                "POST_SEND_DATA.roles.manager.role",
+                "POST_SEND_DATA.roles.manager.address"
+            ],
+            "initialized": true
+        },
+        {
+            "facet_name": "ManagerFacet",
+            "address": "CrossDev.deployed_address",
+            "function_name": "setFeeWallet",
+            "params": [
+                "POST_SEND_DATA.fee_wallet.address"
+            ],
+            "initialized": true
+        },
+        {
+            "facet_name": "ManagerFacet",
+            "address": "CrossDev.deployed_address",
+            "function_name": "setUniversalRouter",
+            "params": [
+                "POST_SEND_DATA.universal_router.address"
+            ],
+            "initialized": true
+        },
+        {
+            "facet_name": "ManagerFacet",
+            "address": "CrossDev.deployed_address",
+            "function_name": "setFee",
+            "params": [
+                "POST_SEND_DATA.fee_config.QUICK_SWAP.command",
+                "POST_SEND_DATA.fee_config.QUICK_SWAP.bps"
+            ],
+            "initialized": true
+        }
+    ],
+    "facets": [
+        {
+            "facet_name": "DiamondCutFacet",
+            "facet_address": "0x4137ae5c47546197409C53317a207def2B6f7017",
+            "function_selectors": [
+                {
+                    "selector": "0x1f931c1c",
+                    "function_signature": "diamondCut(tuple[],address,bytes)"
+                }
+            ]
+        },
+        {
+            "facet_name": "OwnershipFacet",
+            "facet_address": "0x9b5f8827d5Fe8f6Fb4e69313CEe452A96377e3Ed",
+            "function_selectors": [
+                {
+                    "selector": "0x8da5cb5b",
+                    "function_signature": "owner()"
+                },
+                {
+                    "selector": "0xf2fde38b",
+                    "function_signature": "transferOwnership(address)"
+                }
+            ]
+        },
+        {
+            "facet_name": "DiamondLoupeFacet",
+            "facet_address": "0x058725536D2E6C9825c7b895CE5e140Dd0387eBe",
+            "function_selectors": [
+                {
+                    "selector": "0xcdffacc6",
+                    "function_signature": "facetAddress(bytes4)"
+                },
+                {
+                    "selector": "0x52ef6b2c",
+                    "function_signature": "facetAddresses()"
+                },
+                {
+                    "selector": "0xadfca15e",
+                    "function_signature": "facetFunctionSelectors(address)"
+                },
+                {
+                    "selector": "0x7a0ed627",
+                    "function_signature": "facets()"
+                },
+                {
+                    "selector": "0x01ffc9a7",
+                    "function_signature": "supportsInterface(bytes4)"
+                }
+            ]
+        },
+        {
+            "facet_name": "AccessFacet",
+            "facet_address": "0xdF0C4f540B9B96B98C596046238aa3837F02D4c5",
+            "function_selectors": [
+                {
+                    "selector": "0x5dd7556c",
+                    "function_signature": "getAddressForRole(string)"
+                },
+                {
+                    "selector": "0x442890d5",
+                    "function_signature": "getContractOwner()"
+                },
+                {
+                    "selector": "0x94c54932",
+                    "function_signature": "setAddressForRole(string,address)"
+                },
+                {
+                    "selector": "0xa34d42b8",
+                    "function_signature": "setContractOwner(address)"
+                }
+            ]
+        },
+        {
+            "facet_name": "ManagerFacet",
+            "facet_address": "0x3c57B7142B7332f773f202c3740dA0dde7ca16Ee",
+            "function_selectors": [
+                {
+                    "selector": "0x92250bdb",
+                    "function_signature": "getEmergency()"
+                },
+                {
+                    "selector": "0xed1eee68",
+                    "function_signature": "getFee(string)"
+                },
+                {
+                    "selector": "0x5459060d",
+                    "function_signature": "getFeeWallet()"
+                },
+                {
+                    "selector": "0x0b54f824",
+                    "function_signature": "getUniversalRouter()"
+                },
+                {
+                    "selector": "0x0501d556",
+                    "function_signature": "setEmergency(bool)"
+                },
+                {
+                    "selector": "0xcafe0e90",
+                    "function_signature": "setFee(string,uint256)"
+                },
+                {
+                    "selector": "0x90d49b9d",
+                    "function_signature": "setFeeWallet(address)"
+                },
+                {
+                    "selector": "0x628a4b2f",
+                    "function_signature": "setUniversalRouter(address)"
+                }
+            ]
+        },
+        {
+            "facet_name": "UniswapFacet",
+            "facet_address": "0x03eE866FbB6FC28c1c83F549CBBc94E095899C50",
+            "function_selectors": [
+                {
+                    "selector": "0x369effa0",
+                    "function_signature": "calculateFeeAndRemain(uint256)"
+                },
+                {
+                    "selector": "0x15ce141e",
+                    "function_signature": "quickSwap(bytes,bytes[])"
+                }
+            ]
+        }
+    ],
+    "POST_SEND_DATA": {
+        "roles": {
+            "manager": {
+                "role": "MANAGER_ROLE",
+                "address": "0xD5A2DEA630FF4A999C124ea4c04ad83137860668"
+            }
+        },
+        "fee_wallet": {
+            "address": "0xfEa2B3223D5737F33a1fA22122a2a3EDA088FF32"
+        },
+        "universal_router": {
+            "address": "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD"
+        },
+        "fee_config": {
+            "QUICK_SWAP": {
+                "command": "8ead0c3b203539fe29bd2cbf29abc1a5d04a92043c7e4a30959a2d154a028ef2",
+                "bps": 10000
+            }
+        }
+    },
+    "Bridge": {
+        "deployed_address": ""
+    }
+}
