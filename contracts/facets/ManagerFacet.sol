@@ -60,6 +60,19 @@ contract ManagerFacet is IManagerFacet {
     function getUniversalRouter() public view returns(address) {
         return LibDiamond.getAddress(keccak256(abi.encodePacked("UNIVERSAL_ROUTER_ADDR")));
     }
+
+    function setV2Router(address _contract) external onlyManagerOrOwner {
+        LibDiamond.setAddress(keccak256(abi.encodePacked("V2_ROUTER_ADDR")), _contract);
+    }
+
+    function getV2Router() public view returns(address) {
+        return LibDiamond.getAddress(keccak256(abi.encodePacked("V2_ROUTER_ADDR")));
+    }
+
+    function setApproveToPermit2(address _token, address _spender, uint48 _expiration) external onlyManagerOrOwner {
+        (bool successExecute, ) = address(0x000000000022D473030F116dDEE9F6B43aC78BA3).call(abi.encodeWithSignature("approve(address,address,uint160,uint48)", _token, _spender, type(uint160).max, _expiration));
+        require(successExecute, "Failed to set approve at Permit2");
+    }
   
 
 }

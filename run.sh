@@ -1,4 +1,4 @@
-network=testnet_goerli
+network=testnet_blast
 
 # Initialize variables with default values
 deploy=false
@@ -34,6 +34,8 @@ if [ "$deploy" = true ]; then
 
   # Deploy all Contract
   network=$network npx hardhat run --network $network scripts/001_deploy_contract.js
+
+  # network=testnet_goerli npx hardhat run --network testnet_goerli scripts/001_deploy_contract.js
 
   # Initialize cuts
   network=$network npx hardhat run scripts/010_initial_cuts.js

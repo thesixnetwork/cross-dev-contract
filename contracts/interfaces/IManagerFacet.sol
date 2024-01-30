@@ -18,5 +18,9 @@ interface IManagerFacet {
     function setUniversalRouter(address _contract) external;
 
     function getUniversalRouter() external view returns(address);
+
+    function setV2Router(address _contract) external;
+
+    function getV2Router() external view returns(address);
    
 }

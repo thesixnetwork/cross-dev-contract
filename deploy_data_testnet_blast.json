@@ -6,7 +6,7 @@
             "artifact": "DiamondCutFacet",
             "arguments": []
         },
-        "deployed_address": "0x46F0D6AeBEc5c0D67c40262A40009d1560b531ce"
+        "deployed_address": "0xd8B1a37FE99da7280daa502738E402019abdcca7"
     },
     "DiamondLoupeFacet": {
         "is_facet": true,
@@ -14,7 +14,7 @@
             "artifact": "DiamondLoupeFacet",
             "arguments": []
         },
-        "deployed_address": "0x396E040Eda60472250C912d14eDcaFD56bFa3086",
+        "deployed_address": "0x90D9c2045cc09BCCb4b080D842b31b1804E5A149",
         "initialized": true
     },
     "OwnershipFacet": {
@@ -23,7 +23,7 @@
             "artifact": "OwnershipFacet",
             "arguments": []
         },
-        "deployed_address": "0x08a3C458ad7435237c0Be476319a81541b679c8a",
+        "deployed_address": "0xaE9e1F7c9C79158AAB44C36E4C69E83948c2F0f9",
         "initialized": true
     },
     "AccessFacet": {
@@ -32,7 +32,7 @@
             "artifact": "AccessFacet",
             "arguments": []
         },
-        "deployed_address": "0x542f1B9dF48Ed56c53e835833173bAfA9aB63b53",
+        "deployed_address": "0x1388A1D40985CeB8A49B05Bcc369d195E45F1224",
         "initialized": true
     },
     "ManagerFacet": {
@@ -41,7 +41,7 @@
             "artifact": "ManagerFacet",
             "arguments": []
         },
-        "deployed_address": "0x37634092d105b42Ed5b2970B826b0711C974Fd6D",
+        "deployed_address": "0x6fF6973C3495cc4983F06866B209A45cFd6A6Ac5",
         "initialized": true
     },
     "UniswapFacet": {
@@ -50,7 +50,7 @@
             "artifact": "UniswapFacet",
             "arguments": []
         },
-        "deployed_address": "0xce5234ac8D17911D2e1CdF1C8d8c1721c1dC70b5",
+        "deployed_address": "0x6a167148326453c19d53C4a6d8DD1FC2d44F9D59",
         "initialized": true
     },
     "CrossDev": {
@@ -61,7 +61,7 @@
                 "DiamondCutFacet.deployed_address"
             ]
         },
-        "deployed_address": "0x99FBAEb874aDCA996EBd65b6eC3c414065fDDa92"
+        "deployed_address": "0x6a6CD4D9Ee820839fdBD5d77911bfa8C31F7eE19"
     },
     "initial_cuts": [
         "OwnershipFacet",
@@ -102,6 +102,15 @@
         {
             "facet_name": "ManagerFacet",
             "address": "CrossDev.deployed_address",
+            "function_name": "setV2Router",
+            "params": [
+                "POST_SEND_DATA.v2_router.address"
+            ],
+            "initialized": true
+        },
+        {
+            "facet_name": "ManagerFacet",
+            "address": "CrossDev.deployed_address",
             "function_name": "setFee",
             "params": [
                 "POST_SEND_DATA.fee_config.QUICK_SWAP.command",
@@ -113,7 +122,7 @@
     "facets": [
         {
             "facet_name": "DiamondCutFacet",
-            "facet_address": "0x46F0D6AeBEc5c0D67c40262A40009d1560b531ce",
+            "facet_address": "0xd8B1a37FE99da7280daa502738E402019abdcca7",
             "function_selectors": [
                 {
                     "selector": "0x1f931c1c",
@@ -123,7 +132,7 @@
         },
         {
             "facet_name": "OwnershipFacet",
-            "facet_address": "0x08a3C458ad7435237c0Be476319a81541b679c8a",
+            "facet_address": "0xaE9e1F7c9C79158AAB44C36E4C69E83948c2F0f9",
             "function_selectors": [
                 {
                     "selector": "0x8da5cb5b",
@@ -137,7 +146,7 @@
         },
         {
             "facet_name": "DiamondLoupeFacet",
-            "facet_address": "0x396E040Eda60472250C912d14eDcaFD56bFa3086",
+            "facet_address": "0x90D9c2045cc09BCCb4b080D842b31b1804E5A149",
             "function_selectors": [
                 {
                     "selector": "0xcdffacc6",
@@ -163,7 +172,7 @@
         },
         {
             "facet_name": "AccessFacet",
-            "facet_address": "0x542f1B9dF48Ed56c53e835833173bAfA9aB63b53",
+            "facet_address": "0x1388A1D40985CeB8A49B05Bcc369d195E45F1224",
             "function_selectors": [
                 {
                     "selector": "0x5dd7556c",
@@ -185,7 +194,7 @@
         },
         {
             "facet_name": "ManagerFacet",
-            "facet_address": "0x37634092d105b42Ed5b2970B826b0711C974Fd6D",
+            "facet_address": "0x6fF6973C3495cc4983F06866B209A45cFd6A6Ac5",
             "function_selectors": [
                 {
                     "selector": "0x92250bdb",
@@ -202,6 +211,10 @@
                 {
                     "selector": "0x0b54f824",
                     "function_signature": "getUniversalRouter()"
+                },
+                {
+                    "selector": "0x08a71c50",
+                    "function_signature": "getV2Router()"
                 },
                 {
                     "selector": "0xf0139729",
@@ -222,20 +235,32 @@
                 {
                     "selector": "0x628a4b2f",
                     "function_signature": "setUniversalRouter(address)"
+                },
+                {
+                    "selector": "0x25fb6353",
+                    "function_signature": "setV2Router(address)"
                 }
             ]
         },
         {
             "facet_name": "UniswapFacet",
-            "facet_address": "0x010f24f79DfDD374d892E9938f331Fb151D17eD7",
+            "facet_address": "0x3C1405c8B389aC466dA4cb2D6584d256d16B5aa0",
             "function_selectors": [
                 {
                     "selector": "0x369effa0",
                     "function_signature": "calculateFeeAndRemain(uint256)"
                 },
                 {
-                    "selector": "0x15ce141e",
-                    "function_signature": "quickSwap(bytes,bytes[])"
+                    "selector": "0x5d357de1",
+                    "function_signature": "quickSwapUniversal(bytes,bytes[])"
+                },
+                {
+                    "selector": "0xe125a6ed",
+                    "function_signature": "quickSwapV2In(address,address,uint256)"
+                },
+                {
+                    "selector": "0x38710e25",
+                    "function_signature": "quickSwapV2Out(address,address,uint256,uint256)"
                 }
             ]
         }
@@ -253,16 +278,14 @@
         "universal_router": {
             "address": "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD"
         },
+        "v2_router": {
+            "address": "0x5ff51fDC4f2Fc16E4f6e3a5dFAe5c98a64A74D40"
+        },
         "fee_config": {
             "QUICK_SWAP": {
                 "command": "8ead0c3b203539fe29bd2cbf29abc1a5d04a92043c7e4a30959a2d154a028ef2",
                 "bps": 10000
             }
-        },
-        "init_weth_permit2": {
-            "wethAddr": "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6",
-            "spender": "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD",
-            "expiration": 1737630890
         }
     },
     "Bridge": {
