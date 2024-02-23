@@ -35,7 +35,7 @@ if [ "$deploy" = true ]; then
   # Deploy all Contract
   network=$network npx hardhat run --network $network scripts/001_deploy_contract.js
 
-  # network=testnet_goerli npx hardhat run --network testnet_goerli scripts/001_deploy_contract.js
+  # network=testnet_blast npx hardhat run --network testnet_blast scripts/100_get_fee.js
 
   # Initialize cuts
   network=$network npx hardhat run scripts/010_initial_cuts.js
@@ -66,6 +66,7 @@ network=$network facetName="DiamondLoupeFacet" _action=0 npx hardhat run scripts
 network=$network facetName="AccessFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
 network=$network facetName="ManagerFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
 network=$network facetName="UniswapFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
+
 
 
 

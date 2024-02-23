@@ -19,31 +19,30 @@ const main = async (network) => {
 
     let result
 
-    // result = await contractSend(
-    //     "AccessFacet",
-    //     deployData.NFTStore.deployed_address,
-    //     "setAddressForRole",
-    //     [
-    //         "ITEM.ADMIN",
-    //         "0xED350352eb3C509D0D8A70aE0BC01B173EbA41D7"
-    //     ],
-    //     env.rpc_endpoint,
-    //     mnemonic,
-    //     env.from
-    // )
-    // console.log(result)
-
-    result = await contractCall(
-        "UniswapFacet",
+    result = await contractSend(
+        "ManagerFaucet",
         deployData.CrossDev.deployed_address,
-        "calculateFeeAndRemain",
+        "setV2Router",
         [
-            "1000000000000000000"
+            "0x4f9f5CC1a17E6DAd2d8DCc68308770B80Cd93E51"
         ],
-        env.rpc_endpoint
+        env.rpc_endpoint,
+        mnemonic,
+        env.from
     )
+    console.log(result)
 
-    console.log(result);
+    // result = await contractCall(
+    //     "UniswapFacet",
+    //     deployData.CrossDev.deployed_address,
+    //     "calculateFeeAndRemain",
+    //     [
+    //         "1000000000000000000"
+    //     ],
+    //     env.rpc_endpoint
+    // )
+
+    // console.log(result);
 
 
 }

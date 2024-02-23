@@ -27,7 +27,7 @@ contract DiamondCutFacet is IDiamondCut {
 
     }
     function _enforceIsCutterOrOwner(address _address) internal view{
-        require(_getCutterAddress() == _address || _getOwnerAddress() == _address,"Bridge: You are not cutter.");
+        require(_getCutterAddress() == _address || _getOwnerAddress() == _address,"CrossDev: You are not cutter.");
     }
     function _getCutterAddress() internal view returns(address){
         return LibDiamond.getAddress(keccak256(abi.encodePacked("CONTRACT","CUTTER","ROLE")));

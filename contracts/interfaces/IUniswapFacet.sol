@@ -12,9 +12,9 @@ interface IUniswapFacet {
 
     function quickSwapUniversal(bytes memory _command, bytes[] memory _inputs) external payable;
 
-    function quickSwapV2In(address _token0, address _token1, uint256 _deadline) external payable;
+    function quickSwapV2In(address _v2Router, address _token0, address _token1, uint256 _deadline) external payable;
 
-    function quickSwapV2Out(address _token0, address _token1, uint256 _amount, uint256 _deadline) external payable;
+    function quickSwapV2Out(address _v2Router, address _token0, address _token1, uint256 _amount, uint256 _deadline) external payable;
 
     function calculateFeeAndRemain(uint _amountIn) external view returns(uint[2] memory);
 

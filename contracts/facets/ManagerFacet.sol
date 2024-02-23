@@ -5,16 +5,24 @@ import { LibDiamond } from "../libraries/LibDiamond.sol";
 import "../interfaces/IManagerFacet.sol";
 import "../interfaces/IAccessFacet.sol";
 import "../interfaces/IERC20.sol";
+import { IBlast } from "../interfaces/IBlast.sol";
 
 contract ManagerFacet is IManagerFacet {
     event SetEmergency(bool _flag);
     event SetFee(string _command, uint _bps);
 
     string private constant _MANAGER_ROLE_KEY = "MANAGER_ROLE";
+    string private constant _CLAIMER_ROLE_KEY = "CLAIMER_ROLE";
 
     modifier onlyManagerOrOwner {
         address feeManagerAddr = IAccessFacet(address(this)).getAddressForRole(_MANAGER_ROLE_KEY);
         require(msg.sender == feeManagerAddr || msg.sender == LibDiamond.contractOwner(), "ManagerFacet: Only fee manager or Owner");
+        _;
+    }
+
+    modifier onlyClaimer {
+        address feeClaimerAddr = IAccessFacet(address(this)).getAddressForRole(_CLAIMER_ROLE_KEY);
+        require(msg.sender == feeClaimerAddr, "ManagerFacet: Only fee claimer");
         _;
     }
 
@@ -26,6 +34,16 @@ contract ManagerFacet is IManagerFacet {
     /* mapping command to sha256(command)
         8ead0c3b203539fe29bd2cbf29abc1a5d04a92043c7e4a30959a2d154a028ef2 = QUICK_SWAP
     */
+
+    function claimYieldAllGas() external override onlyClaimer() {
+        IBlast BLAST = IBlast(0x4300000000000000000000000000000000000002);
+        BLAST.claimAllGas(address(this), msg.sender);
+    }
+
+    function claimYieldMaxGas() external override onlyClaimer() {
+        IBlast BLAST = IBlast(0x4300000000000000000000000000000000000002);
+        BLAST.claimMaxGas(address(this), msg.sender);
+    }
     
     function setEmergency(bool _flag)  external onlyManagerOrOwner {
         LibDiamond.setBool(keccak256(abi.encodePacked("EMERGENCY_BRIDGE")),_flag);
@@ -59,14 +77,6 @@ contract ManagerFacet is IManagerFacet {
 
     function getUniversalRouter() public view returns(address) {
         return LibDiamond.getAddress(keccak256(abi.encodePacked("UNIVERSAL_ROUTER_ADDR")));
-    }
-
-    function setV2Router(address _contract) external onlyManagerOrOwner {
-        LibDiamond.setAddress(keccak256(abi.encodePacked("V2_ROUTER_ADDR")), _contract);
-    }
-
-    function getV2Router() public view returns(address) {
-        return LibDiamond.getAddress(keccak256(abi.encodePacked("V2_ROUTER_ADDR")));
     }
 
     function setApproveToPermit2(address _token, address _spender, uint48 _expiration) external onlyManagerOrOwner {
