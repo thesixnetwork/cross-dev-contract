@@ -3,10 +3,6 @@ pragma solidity ^0.8.19;
 
 
 interface IManagerFacet {
-    function claimYieldAllGas() external;
-
-    function claimYieldMaxGas() external;
-
     function setEmergency(bool _flag)  external;
 
     function getEmergency() external view returns(bool);

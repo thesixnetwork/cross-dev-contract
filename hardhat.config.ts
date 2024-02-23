@@ -13,6 +13,10 @@ const config: HardhatUserConfig = {
       url: "https://ethereum-goerli.publicnode.com",
       accounts: [mnemonic]
     },
+    testnet_sepolia: {
+      url: "https://proud-still-snow.ethereum-sepolia.quiknode.pro/6caab2c6d1ecb19e3697697d569944fe67109338",
+      accounts: [mnemonic]
+    },
     testnet_blast: {
       url: "https://magical-silent-tab.blast-sepolia.quiknode.pro/9ad69164432ae5e9bc23fccc27b506e3169c873d",
       accounts: [mnemonic]

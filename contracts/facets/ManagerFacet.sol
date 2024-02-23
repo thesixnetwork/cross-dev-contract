@@ -34,16 +34,6 @@ contract ManagerFacet is IManagerFacet {
     /* mapping command to sha256(command)
         8ead0c3b203539fe29bd2cbf29abc1a5d04a92043c7e4a30959a2d154a028ef2 = QUICK_SWAP
     */
-
-    function claimYieldAllGas() external override onlyClaimer() {
-        IBlast BLAST = IBlast(0x4300000000000000000000000000000000000002);
-        BLAST.claimAllGas(address(this), msg.sender);
-    }
-
-    function claimYieldMaxGas() external override onlyClaimer() {
-        IBlast BLAST = IBlast(0x4300000000000000000000000000000000000002);
-        BLAST.claimMaxGas(address(this), msg.sender);
-    }
     
     function setEmergency(bool _flag)  external onlyManagerOrOwner {
         LibDiamond.setBool(keccak256(abi.encodePacked("EMERGENCY_BRIDGE")),_flag);

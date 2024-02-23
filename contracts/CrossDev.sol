@@ -10,7 +10,6 @@ pragma solidity ^0.8.19;
 
 import { LibDiamond } from "./libraries/LibDiamond.sol";
 import { IDiamondCut } from "./interfaces/IDiamondCut.sol";
-import { IBlast } from "./interfaces/IBlast.sol";
 
 contract CrossDev {
     constructor(address _contractOwner, address _diamondCutFacet) payable {        
@@ -26,10 +25,6 @@ contract CrossDev {
             functionSelectors: functionSelectors
         });
         LibDiamond.diamondCut(cut, address(0), "");
-
-        IBlast BLAST = IBlast(0x4300000000000000000000000000000000000002);
-        BLAST.configureClaimableGas();
-        BLAST.configureGovernor(address(this));        
     }
 
     // Find facet for function that is called and execute the

@@ -1,4 +1,4 @@
-network=testnet_blast
+network=testnet_sepolia
 
 # Initialize variables with default values
 deploy=false
