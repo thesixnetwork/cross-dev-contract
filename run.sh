@@ -1,4 +1,4 @@
-network=testnet_sepolia
+network=testnet_goerli
 
 # Initialize variables with default values
 deploy=false
@@ -66,8 +66,3 @@ network=$network facetName="DiamondLoupeFacet" _action=0 npx hardhat run scripts
 network=$network facetName="AccessFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
 network=$network facetName="ManagerFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
 network=$network facetName="UniswapFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
-
-
-
-
-

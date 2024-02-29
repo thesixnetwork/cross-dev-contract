@@ -6,7 +6,7 @@
             "artifact": "DiamondCutFacet",
             "arguments": []
         },
-        "deployed_address": "0x46F0D6AeBEc5c0D67c40262A40009d1560b531ce"
+        "deployed_address": "0xd3D851DC27cA21DfE9669CF4440590fEa939fd40"
     },
     "DiamondLoupeFacet": {
         "is_facet": true,
@@ -14,7 +14,7 @@
             "artifact": "DiamondLoupeFacet",
             "arguments": []
         },
-        "deployed_address": "0x396E040Eda60472250C912d14eDcaFD56bFa3086",
+        "deployed_address": "0xbABA684BAe607925072ae5b10Fa19F88788F0193",
         "initialized": true
     },
     "OwnershipFacet": {
@@ -23,7 +23,7 @@
             "artifact": "OwnershipFacet",
             "arguments": []
         },
-        "deployed_address": "0x08a3C458ad7435237c0Be476319a81541b679c8a",
+        "deployed_address": "0xc306206d08C2bb92F38170F15e87dd173cAd9dce",
         "initialized": true
     },
     "AccessFacet": {
@@ -32,7 +32,7 @@
             "artifact": "AccessFacet",
             "arguments": []
         },
-        "deployed_address": "0x542f1B9dF48Ed56c53e835833173bAfA9aB63b53",
+        "deployed_address": "0x2684b9C71Fab3cb51A80e6fC13f153F0D46F6C79",
         "initialized": true
     },
     "ManagerFacet": {
@@ -41,7 +41,7 @@
             "artifact": "ManagerFacet",
             "arguments": []
         },
-        "deployed_address": "0x37634092d105b42Ed5b2970B826b0711C974Fd6D",
+        "deployed_address": "0x09d46a40AF8F4883Bea888ff05c4CE92eaB0C498",
         "initialized": true
     },
     "UniswapFacet": {
@@ -50,7 +50,7 @@
             "artifact": "UniswapFacet",
             "arguments": []
         },
-        "deployed_address": "0xce5234ac8D17911D2e1CdF1C8d8c1721c1dC70b5",
+        "deployed_address": "0xdEEa33E972D24dA0683B38D1FB3a2d1d88593Cd7",
         "initialized": true
     },
     "CrossDev": {
@@ -61,7 +61,7 @@
                 "DiamondCutFacet.deployed_address"
             ]
         },
-        "deployed_address": "0x99FBAEb874aDCA996EBd65b6eC3c414065fDDa92"
+        "deployed_address": "0xd400b11375c0FAb89B21e9474Dbe683A373A6e01"
     },
     "initial_cuts": [
         "OwnershipFacet",
@@ -113,7 +113,7 @@
     "facets": [
         {
             "facet_name": "DiamondCutFacet",
-            "facet_address": "0x46F0D6AeBEc5c0D67c40262A40009d1560b531ce",
+            "facet_address": "0xd3D851DC27cA21DfE9669CF4440590fEa939fd40",
             "function_selectors": [
                 {
                     "selector": "0x1f931c1c",
@@ -123,7 +123,7 @@
         },
         {
             "facet_name": "OwnershipFacet",
-            "facet_address": "0x08a3C458ad7435237c0Be476319a81541b679c8a",
+            "facet_address": "0xc306206d08C2bb92F38170F15e87dd173cAd9dce",
             "function_selectors": [
                 {
                     "selector": "0x8da5cb5b",
@@ -137,7 +137,7 @@
         },
         {
             "facet_name": "DiamondLoupeFacet",
-            "facet_address": "0x396E040Eda60472250C912d14eDcaFD56bFa3086",
+            "facet_address": "0xbABA684BAe607925072ae5b10Fa19F88788F0193",
             "function_selectors": [
                 {
                     "selector": "0xcdffacc6",
@@ -163,7 +163,7 @@
         },
         {
             "facet_name": "AccessFacet",
-            "facet_address": "0x542f1B9dF48Ed56c53e835833173bAfA9aB63b53",
+            "facet_address": "0x2684b9C71Fab3cb51A80e6fC13f153F0D46F6C79",
             "function_selectors": [
                 {
                     "selector": "0x5dd7556c",
@@ -185,7 +185,7 @@
         },
         {
             "facet_name": "ManagerFacet",
-            "facet_address": "0x37634092d105b42Ed5b2970B826b0711C974Fd6D",
+            "facet_address": "0x09d46a40AF8F4883Bea888ff05c4CE92eaB0C498",
             "function_selectors": [
                 {
                     "selector": "0x92250bdb",
@@ -227,15 +227,23 @@
         },
         {
             "facet_name": "UniswapFacet",
-            "facet_address": "0x010f24f79DfDD374d892E9938f331Fb151D17eD7",
+            "facet_address": "0xdEEa33E972D24dA0683B38D1FB3a2d1d88593Cd7",
             "function_selectors": [
                 {
                     "selector": "0x369effa0",
                     "function_signature": "calculateFeeAndRemain(uint256)"
                 },
                 {
-                    "selector": "0x15ce141e",
-                    "function_signature": "quickSwap(bytes,bytes[])"
+                    "selector": "0x5d357de1",
+                    "function_signature": "quickSwapUniversal(bytes,bytes[])"
+                },
+                {
+                    "selector": "0x253fb7fe",
+                    "function_signature": "quickSwapV2In(address,address,address,uint256)"
+                },
+                {
+                    "selector": "0xc081cb48",
+                    "function_signature": "quickSwapV2Out(address,address,address,uint256,uint256)"
                 }
             ]
         }
