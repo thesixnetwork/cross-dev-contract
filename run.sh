@@ -1,4 +1,4 @@
-network=testnet_blast
+network=mainnet_blast
 
 # Initialize variables with default values
 deploy=false
@@ -30,7 +30,7 @@ if [ "$deploy" = true ]; then
   echo "Deploying..."
   
   # Clean all deployment data
-  network=$network npx hardhat run scripts/000_reset_deploy.js
+  # network=$network npx hardhat run scripts/000_reset_deploy.js
 
   # Deploy all Contract
   network=$network npx hardhat run --network $network scripts/001_deploy_contract.js
@@ -52,7 +52,7 @@ Add = 0, Replace = 1, and Remove = 2
 # network=$network facetName="UniswapFacet" _action=0 npx hardhat run scripts/020_cut_diamond.js
 DIAMOND_CUT_ACTION_COMMENT
 
-# Get facets function bytes
+# # Get facets function bytes
 network=$network npx hardhat run scripts/030_load_facets.js
 
 if [ "$deploy" = true ]; then
@@ -60,12 +60,14 @@ if [ "$deploy" = true ]; then
 fi
 
 
-# Verify facets function has been added
-network=$network facetName="OwnershipFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
-network=$network facetName="DiamondLoupeFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
-network=$network facetName="AccessFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
-network=$network facetName="ManagerFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
-network=$network facetName="UniswapFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
+# # Verify facets function has been added
+# network=$network facetName="OwnershipFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
+# network=$network facetName="DiamondLoupeFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
+# network=$network facetName="AccessFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
+# network=$network facetName="ManagerFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
+# network=$network facetName="UniswapFacet" _action=0 npx hardhat run scripts/050_merge_cut.js
+
+# network=$network facetName="UniswapFacet" _action=0 npx hardhat run scripts/020_cut_diamond.js
 
 
 

@@ -16,6 +16,10 @@ const config: HardhatUserConfig = {
     testnet_blast: {
       url: "https://magical-silent-tab.blast-sepolia.quiknode.pro/9ad69164432ae5e9bc23fccc27b506e3169c873d",
       accounts: [mnemonic]
+    },
+    mainnet_blast: {
+      url: "https://blastl2-mainnet.public.blastapi.io",
+      accounts: [mnemonic]
     }
   },
   solidity: {

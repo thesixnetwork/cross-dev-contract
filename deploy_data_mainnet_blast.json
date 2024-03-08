@@ -1,12 +1,12 @@
 {
-    "owner": "0xD5A2DEA630FF4A999C124ea4c04ad83137860668",
+    "owner": "0x7E62FD3e2a47ce5f66664D104D973207a1d42234",
     "DiamondCutFacet": {
         "is_facet": true,
         "deploy": {
             "artifact": "DiamondCutFacet",
             "arguments": []
         },
-        "deployed_address": "0x8A1E2EF2E610a442953A693A8C6FeC33f9DcfF85"
+        "deployed_address": "0x02BE98160a73C4B9e3b36dbA1474d698EaA68EF7"
     },
     "DiamondLoupeFacet": {
         "is_facet": true,
@@ -14,7 +14,7 @@
             "artifact": "DiamondLoupeFacet",
             "arguments": []
         },
-        "deployed_address": "0xEFBC38d8c70890c1a59Fb0B4d782008EdE63137a",
+        "deployed_address": "0x6cDDc885111a1D6848fE6A82A7C10003c818f8fc",
         "initialized": true
     },
     "OwnershipFacet": {
@@ -23,7 +23,7 @@
             "artifact": "OwnershipFacet",
             "arguments": []
         },
-        "deployed_address": "0x28571EfEcE003b38F84C5553a79Eafbcdb4Bf3F5",
+        "deployed_address": "0xe8367969412081278E28bB751597E6b69F0b44eF",
         "initialized": true
     },
     "AccessFacet": {
@@ -32,7 +32,7 @@
             "artifact": "AccessFacet",
             "arguments": []
         },
-        "deployed_address": "0x541B51E6F47d9fFfcf16d889eAC1e648D17716a7",
+        "deployed_address": "0x231716Fc00B127402EC3BE36FAd131194227A724",
         "initialized": true
     },
     "ManagerFacet": {
@@ -41,7 +41,7 @@
             "artifact": "ManagerFacet",
             "arguments": []
         },
-        "deployed_address": "0x7aEFFA3E3955C3cedb87265E70CDBC8A10c1E0B9",
+        "deployed_address": "0xdAfec278FCA0129fB205a3f9e002f0db4aCB8E3d",
         "initialized": true
     },
     "UniswapFacet": {
@@ -50,7 +50,7 @@
             "artifact": "UniswapFacet",
             "arguments": []
         },
-        "deployed_address": "0x104268A0a2e2Bd142992C2694D4d3AA5F68522e7",
+        "deployed_address": "0x6d7D6909492F04EB4799c8BbfEe2D57562b737E0",
         "initialized": true
     },
     "DepositFacet": {
@@ -59,7 +59,7 @@
             "artifact": "DepositFacet",
             "arguments": []
         },
-        "deployed_address": "0x2e23959e43d26A0e6100a4cA023b12fc1AAA9005",
+        "deployed_address": "0xc115930FadF8925AB0eFfE2c1d586D70FAAD1594",
         "initialized": true
     },
     "CrossDev": {
@@ -70,7 +70,7 @@
                 "DiamondCutFacet.deployed_address"
             ]
         },
-        "deployed_address": "0xfC2116DB5a96f0211D16f89298d4D35df7B8117B"
+        "deployed_address": "0x883B9d6b4164f2963A36ba47438E3EaB99dF87F9"
     },
     "initial_cuts": [
         "OwnershipFacet",
@@ -133,7 +133,7 @@
     "facets": [
         {
             "facet_name": "DiamondCutFacet",
-            "facet_address": "0x8A1E2EF2E610a442953A693A8C6FeC33f9DcfF85",
+            "facet_address": "0x02BE98160a73C4B9e3b36dbA1474d698EaA68EF7",
             "function_selectors": [
                 {
                     "selector": "0x1f931c1c",
@@ -143,7 +143,7 @@
         },
         {
             "facet_name": "OwnershipFacet",
-            "facet_address": "0x28571EfEcE003b38F84C5553a79Eafbcdb4Bf3F5",
+            "facet_address": "0xe8367969412081278E28bB751597E6b69F0b44eF",
             "function_selectors": [
                 {
                     "selector": "0x8da5cb5b",
@@ -157,7 +157,7 @@
         },
         {
             "facet_name": "DiamondLoupeFacet",
-            "facet_address": "0xEFBC38d8c70890c1a59Fb0B4d782008EdE63137a",
+            "facet_address": "0x6cDDc885111a1D6848fE6A82A7C10003c818f8fc",
             "function_selectors": [
                 {
                     "selector": "0xcdffacc6",
@@ -183,7 +183,7 @@
         },
         {
             "facet_name": "AccessFacet",
-            "facet_address": "0x541B51E6F47d9fFfcf16d889eAC1e648D17716a7",
+            "facet_address": "0x231716Fc00B127402EC3BE36FAd131194227A724",
             "function_selectors": [
                 {
                     "selector": "0x5dd7556c",
@@ -205,7 +205,7 @@
         },
         {
             "facet_name": "ManagerFacet",
-            "facet_address": "0x7aEFFA3E3955C3cedb87265E70CDBC8A10c1E0B9",
+            "facet_address": "0xdAfec278FCA0129fB205a3f9e002f0db4aCB8E3d",
             "function_selectors": [
                 {
                     "selector": "0x84357173",
@@ -254,8 +254,30 @@
             ]
         },
         {
+            "facet_name": "UniswapFacet",
+            "facet_address": "0x6d7D6909492F04EB4799c8BbfEe2D57562b737E0",
+            "function_selectors": [
+                {
+                    "selector": "0x369effa0",
+                    "function_signature": "calculateFeeAndRemain(uint256)"
+                },
+                {
+                    "selector": "0x5d357de1",
+                    "function_signature": "quickSwapUniversal(bytes,bytes[])"
+                },
+                {
+                    "selector": "0x9c01d520",
+                    "function_signature": "quickSwapV2In(address,address,address,uint256,uint256)"
+                },
+                {
+                    "selector": "0xcddd3d67",
+                    "function_signature": "quickSwapV2Out(address,address,address,uint256,uint256,uint256)"
+                }
+            ]
+        },
+        {
             "facet_name": "DepositFacet",
-            "facet_address": "0x2e23959e43d26A0e6100a4cA023b12fc1AAA9005",
+            "facet_address": "0xc115930FadF8925AB0eFfE2c1d586D70FAAD1594",
             "function_selectors": [
                 {
                     "selector": "0xfdcce1f5",
@@ -268,15 +290,15 @@
         "roles": {
             "manager": {
                 "role": "MANAGER_ROLE",
-                "address": "0xD5A2DEA630FF4A999C124ea4c04ad83137860668"
+                "address": "0x57D95323045c21b8f23ac2daE23FA6574E88C374"
             },
             "claimer": {
                 "role": "CLAIMER_ROLE",
-                "address": "0xD5A2DEA630FF4A999C124ea4c04ad83137860668"
+                "address": "0x57D95323045c21b8f23ac2daE23FA6574E88C374"
             }
         },
         "fee_wallet": {
-            "address": "0xD5A2DEA630FF4A999C124ea4c04ad83137860668"
+            "address": "0x57D95323045c21b8f23ac2daE23FA6574E88C374"
         },
         "universal_router": {
             "address": "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD"

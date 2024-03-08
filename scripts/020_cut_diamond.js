@@ -41,10 +41,12 @@ const main = async(network,facetName,_action) => {
             action: (_action? _action : FacetCutAction.Add),
             functionSelectors: contractFuncSig
         })
-
+        console.log(cut)
         const dimondCutContract = new web3.eth.Contract(IDIAMOND_CUT.abi,_.get(deployData,"CrossDev.deployed_address"))
+        const gasPrice = await web3.eth.getGasPrice()
+        console.log(gasPrice)
     
-        dimondCutContract.methods.diamondCut(cut,ZERO_ADDRESS,[]).send({ from: env.from, gas: 5000000 }).then(console.log)
+        dimondCutContract.methods.diamondCut(cut,ZERO_ADDRESS,[]).send({ from: env.from, gas: 5000000, gasPrice: gasPrice }).then(console.log)
     }
 }
 
