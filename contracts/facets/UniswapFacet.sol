@@ -71,7 +71,7 @@ contract UniswapFacet is IUniswapFacet {
         emit QuickSwapUniversal("Universal", msg.sender, msg.value, nativeData[1]);
     }
 
-    function quickSwapV2In(address _v2Router, address _token0, address _token1, uint256 _deadline) external payable {
+    function quickSwapV2In(address _v2Router, address _token0, address _token1, uint256 _amountOutMin, uint256 _deadline) external payable {
         uint[2] memory nativeData = calculateFeeAndRemain(msg.value);
 
         // Consider to store fee native ETH in smart contract
@@ -83,7 +83,7 @@ contract UniswapFacet is IUniswapFacet {
         path[0] = _token0;
         path[1] = _token1;
 
-        IUniswapV2Router01(_v2Router).swapExactETHForTokens{value: nativeData[0]}(0, path, msg.sender, _deadline);
+        IUniswapV2Router01(_v2Router).swapExactETHForTokens{value: nativeData[0]}(_amountOutMin, path, msg.sender, _deadline);
         
         // (bool successSwap, ) = address(v2Router).call{value: nativeData[0]}(abi.encodeWithSignature("swapExactETHForTokens(uint256,address[],address,uint256)", 0, [token0,token1], msg.sender, deadline));
         // require(successSwap, "Failed to swap");
@@ -91,7 +91,7 @@ contract UniswapFacet is IUniswapFacet {
         emit QuickSwapV2In("V2In", msg.sender, msg.value, nativeData[1]);
     }
 
-    function quickSwapV2Out(address _v2Router, address _token0, address _token1, uint256 _amount, uint256 _deadline) external payable {
+    function quickSwapV2Out(address _v2Router, address _token0, address _token1, uint256 _amount, uint256 _amountOutMin, uint256 _deadline) external payable {
         IERC20 inputToken = IERC20(_token0);
 
         address[] memory path = new address[](2);
@@ -105,7 +105,7 @@ contract UniswapFacet is IUniswapFacet {
             inputToken.approve(_v2Router, type(uint256).max);
         }
 
-        IUniswapV2Router01(_v2Router).swapExactTokensForETH(_amount, 0, path, address(this), _deadline);
+        IUniswapV2Router01(_v2Router).swapExactTokensForETH(_amount, _amountOutMin, path, address(this), _deadline);
         uint[2] memory nativeData = calculateFeeAndRemain(address(this).balance);
         
         (bool successTransferEthSender, ) = msg.sender.call{value: nativeData[0]}("");

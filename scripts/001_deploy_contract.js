@@ -46,15 +46,15 @@ const main = async (network) => {
     }
 
     // Deploy NFTStore
-    const contract = await hardhat.ethers.getContractFactory(deployData.CrossDev.deploy.artifact);
-    const _arguments = deployData.CrossDev.deploy.arguments.map( key => {
-        console.log("key",key)
-        return _.get(deployData,key)
-      })
-    const c = await contract.deploy(..._arguments);
-    await c.waitForDeployment();
-    console.log(`Deployed ${deployData.CrossDev.deploy.artifact} contract to: ${c.target}`);
-    deployData.CrossDev.deployed_address = c.target;
+    // const contract = await hardhat.ethers.getContractFactory(deployData.CrossDev.deploy.artifact);
+    // const _arguments = deployData.CrossDev.deploy.arguments.map( key => {
+    //     console.log("key",key)
+    //     return _.get(deployData,key)
+    //   })
+    // const c = await contract.deploy(..._arguments);
+    // await c.waitForDeployment();
+    // console.log(`Deployed ${deployData.CrossDev.deploy.artifact} contract to: ${c.target}`);
+    // deployData.CrossDev.deployed_address = c.target;
 
 
     // First time sync

@@ -50,7 +50,7 @@
             "artifact": "UniswapFacet",
             "arguments": []
         },
-        "deployed_address": "0x6d7D6909492F04EB4799c8BbfEe2D57562b737E0",
+        "deployed_address": "0x2dADef0f28dF1F8725569a3ecE3E9249D9176C00",
         "initialized": true
     },
     "CrossDev": {
@@ -227,7 +227,7 @@
         },
         {
             "facet_name": "UniswapFacet",
-            "facet_address": "0x6d7D6909492F04EB4799c8BbfEe2D57562b737E0",
+            "facet_address": "0x2dADef0f28dF1F8725569a3ecE3E9249D9176C00",
             "function_selectors": [
                 {
                     "selector": "0x369effa0",
@@ -238,12 +238,12 @@
                     "function_signature": "quickSwapUniversal(bytes,bytes[])"
                 },
                 {
-                    "selector": "0x253fb7fe",
-                    "function_signature": "quickSwapV2In(address,address,address,uint256)"
+                    "selector": "0x9c01d520",
+                    "function_signature": "quickSwapV2In(address,address,address,uint256,uint256)"
                 },
                 {
-                    "selector": "0xc081cb48",
-                    "function_signature": "quickSwapV2Out(address,address,address,uint256,uint256)"
+                    "selector": "0xcddd3d67",
+                    "function_signature": "quickSwapV2Out(address,address,address,uint256,uint256,uint256)"
                 }
             ]
         }
