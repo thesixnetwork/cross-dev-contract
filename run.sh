@@ -1,4 +1,4 @@
-network=testnet_goerli
+network=mainnet_base
 
 # Initialize variables with default values
 deploy=false
