@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import {LibDiamond} from "../libraries/LibDiamond.sol";
 import {IAllowanceTransfer} from '../permit2/src/interfaces/IAllowanceTransfer.sol';
 import {IPermit2} from '../permit2/src/interfaces/IPermit2.sol';
-import {IUniswapV2Router01} from '@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol';
+import {IUniswapV2Router02} from '@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol';
 import "../interfaces/IUniswapFacet.sol";
 import "../interfaces/IAccessFacet.sol";
 import "../interfaces/IManagerFacet.sol";
@@ -83,7 +83,7 @@ contract UniswapFacet is IUniswapFacet {
         path[0] = _token0;
         path[1] = _token1;
 
-        IUniswapV2Router01(_v2Router).swapExactETHForTokens{value: nativeData[0]}(_amountOutMin, path, msg.sender, _deadline);
+        IUniswapV2Router02(_v2Router).swapExactETHForTokensSupportingFeeOnTransferTokens{value: nativeData[0]}(_amountOutMin, path, msg.sender, _deadline);
         
         // (bool successSwap, ) = address(v2Router).call{value: nativeData[0]}(abi.encodeWithSignature("swapExactETHForTokens(uint256,address[],address,uint256)", 0, [token0,token1], msg.sender, deadline));
         // require(successSwap, "Failed to swap");
@@ -105,7 +105,7 @@ contract UniswapFacet is IUniswapFacet {
             inputToken.approve(_v2Router, type(uint256).max);
         }
 
-        IUniswapV2Router01(_v2Router).swapExactTokensForETH(_amount, _amountOutMin, path, address(this), _deadline);
+        IUniswapV2Router02(_v2Router).swapExactTokensForETHSupportingFeeOnTransferTokens(_amount, _amountOutMin, path, address(this), _deadline);
         uint[2] memory nativeData = calculateFeeAndRemain(address(this).balance);
         
         (bool successTransferEthSender, ) = msg.sender.call{value: nativeData[0]}("");
